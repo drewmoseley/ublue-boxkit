@@ -3,11 +3,14 @@ on:
   pull_request:
     branches:
       - main
+      - ubuntu-22-dmoseley
   push:
     branches:
       - main
+      - ubuntu-22-dmoseley
     paths-ignore:
       - '**/README.md'
+  workflow_dispatch:
 env:
     IMAGE_NAME: ubuntu-22-dmoseley-toolbox
     IMAGE_TAGS: latest
