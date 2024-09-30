@@ -2,12 +2,10 @@ name: build-boxkit
 on:
   pull_request:
     branches:
-      - main
-  schedule:
-    - cron: '0 0 * * TUE'
+      - ubuntu-22-dmoseley
   push:
     branches:
-      - main
+      - ubuntu-22-dmoseley
     paths-ignore:
       - '**/README.md'
 env:
