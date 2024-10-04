@@ -11,26 +11,27 @@ COPY extra-packages /toolbox-packages
 
 RUN rm /etc/apt/apt.conf.d/docker-gzip-indexes /etc/apt/apt.conf.d/docker-no-languages && \
     sed -Ei 's/^(hosts:.*)(\<files\>)\s*(.*)/\1\2 myhostname \3/' /etc/nsswitch.conf && \
-    sed -Ei '/apt-get (update|upgrade)/s/^/#/' /usr/local/sbin/unminimize && \
-    apt-get update && \
+    sed -Ei '/apt-get (update|upgrade)/s/^/#/' /usr/local/sbin/unminimize
+RUN apt-get update && \
     yes | /usr/local/sbin/unminimize && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install \
     ubuntu-minimal ubuntu-standard \
     libnss-myhostname \
-    flatpak-xdg-utils \
-    $(cat toolbox-packages | xargs) && \
-    curl https://infinitekind.com/stabledl/current/moneydance_linux_amd64.deb -sLo /tmp/md.deb && \
+    flatpak-xdg-utils
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    $(cat toolbox-packages | xargs)
+RUN curl https://infinitekind.com/stabledl/current/moneydance_linux_amd64.deb -sLo /tmp/md.deb && \
     dpkg --install /tmp/md.deb && \
     rm -f /tmp/md.deb && \
-    echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections && \
+RUN echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections && \
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /tmp/packages.microsoft.gpg && \
     install -D -o root -g root -m 644 /tmp/packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg && \
     echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | tee /etc/apt/sources.list.d/vscode.list > /dev/null && \
     rm -f packages.microsoft.gpg && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install apt-transport-https && \
     apt update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install code && \
-    rm -rd /var/lib/apt/lists/* && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install code
+RUN rm -rd /var/lib/apt/lists/* && \
     rm /toolbox-packages && \
     mkdir /usr/share/empty && \
     userdel --remove ubuntu || true && \
