@@ -31,8 +31,7 @@ RUN echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selectio
     DEBIAN_FRONTEND=noninteractive apt-get -y install apt-transport-https && \
     apt update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install code
-RUN rm -rd /var/lib/apt/lists/* && \
-    rm /toolbox-packages && \
+RUN rm /toolbox-packages && \
     mkdir /usr/share/empty && \
     userdel --remove ubuntu || true && \
     curl -sLo /usr/bin/host-spawn https://github.com/1player/host-spawn/releases/download/1.5.0/host-spawn-x86_64 && \
