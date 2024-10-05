@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ ! -e /run/.containerenv ] && [ ! -e /.dockerenv ]; then # if not inside a container
+    /usr/bin/xdg-open "$@" # run xdg-open normally
+else
+    distrobox-host-exec /usr/bin/xdg-open "$@" # run xdg-open on the host
+fi
