@@ -33,6 +33,11 @@ RUN echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selectio
     DEBIAN_FRONTEND=noninteractive apt-get -y install apt-transport-https && \
     apt update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install code
+RUN wget -q https://packages.microsoft.com/config/ubuntu/$(grep VERSION_ID= /etc/os-release  | cut -d\" -f 2)/packages-microsoft-prod.deb && \
+    dpkg -i packages-microsoft-prod.deb && \
+    rm -f packages-microsoft-prod.deb && \
+    apt update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install powershell
 RUN rm /toolbox-packages && \
     mkdir /usr/share/empty && \
     userdel --remove ubuntu || true && \
