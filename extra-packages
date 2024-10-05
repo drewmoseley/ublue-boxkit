@@ -1,4 +1,5 @@
 apt-utils
+apt-transport-https
 avahi-utils
 bash-completion
 bc
