@@ -38,6 +38,7 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/$(grep VERSION_ID= /etc
     rm -f packages-microsoft-prod.deb && \
     apt update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install powershell
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install moby-cli moby-compose
 RUN rm /toolbox-packages && \
     mkdir /usr/share/empty && \
     userdel --remove ubuntu || true && \
@@ -45,8 +46,5 @@ RUN rm /toolbox-packages && \
     chmod +x /usr/bin/host-spawn && \
     rm /etc/apt/apt.conf.d/20apt-esm-hook.conf && \
     ln -s /usr/libexec/flatpak-xdg-utils/flatpak-spawn /usr/bin/ && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
     ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \ 
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/rpm-ostree && \
     echo "ALL ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers
