@@ -112,6 +112,7 @@ pinentry-curses
 plocate
 procps
 progress
+python3-venv
 rsync
 software-properties-common
 sshpass
