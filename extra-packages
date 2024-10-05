@@ -13,6 +13,7 @@ findutils
 fish
 fzf
 git
+gnome-keyring
 gnupg
 gnupg2
 gnupg-l10n
