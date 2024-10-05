@@ -1,6 +1,8 @@
 apt-utils
+avahi-utils
 bash-completion
 bc
+bind9-dnsutils
 bzip2
 ca-certificates
 curl
@@ -9,6 +11,7 @@ dialog
 diffutils
 direnv
 dirmngr
+file
 findutils
 fish
 fzf
@@ -98,6 +101,8 @@ mesa-vulkan-drivers
 mtr
 ncurses-base
 neofetch
+net-tools
+nmap
 openssh-client
 openssl
 passwd
@@ -108,6 +113,7 @@ procps
 progress
 rsync
 software-properties-common
+sshpass
 sudo
 tcpdump
 time
