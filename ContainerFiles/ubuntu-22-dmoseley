@@ -12,10 +12,8 @@ COPY xdg-open /usr/local/bin/
 RUN chmod +x /usr/local/bin/xdg-open
 
 RUN rm /etc/apt/apt.conf.d/docker-gzip-indexes /etc/apt/apt.conf.d/docker-no-languages && \
-    sed -Ei 's/^(hosts:.*)(\<files\>)\s*(.*)/\1\2 myhostname \3/' /etc/nsswitch.conf && \
-    sed -Ei '/apt-get (update|upgrade)/s/^/#/' /usr/local/sbin/unminimize
+    sed -Ei 's/^(hosts:.*)(\<files\>)\s*(.*)/\1\2 myhostname \3/' /etc/nsswitch.conf
 RUN apt-get update && \
-    yes | /usr/local/sbin/unminimize && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install \
     ubuntu-minimal ubuntu-standard \
     libnss-myhostname \
