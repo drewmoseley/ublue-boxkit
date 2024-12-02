@@ -22,7 +22,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
     $(cat toolbox-packages | xargs)
 RUN curl https://infinitekind.com/stabledl/current/moneydance_linux_amd64.deb -sLo /tmp/md.deb && \
     dpkg --install /tmp/md.deb && \
-    rm -f /tmp/md.deb && \
+    rm -f /tmp/md.deb
 RUN echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections && \
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /tmp/packages.microsoft.gpg && \
     install -D -o root -g root -m 644 /tmp/packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg && \
