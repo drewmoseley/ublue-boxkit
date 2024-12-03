@@ -4,8 +4,10 @@ avahi-utils
 bash-completion
 bc
 bind9-dnsutils
+build-essential
 bzip2
 ca-certificates
+cmake
 curl
 dbus-x11
 dialog
@@ -32,6 +34,7 @@ gpg-wks-server
 hostname
 iproute2
 iputils-ping
+ispell
 keyutils
 language-pack-en
 less
@@ -70,6 +73,8 @@ libsensors-config
 libsqlite3-0
 libtirpc3
 libtirpc-common
+libtool
+libtool-bin
 libvte-2.91-common
 libvte-2.9*-common
 libvte-common
