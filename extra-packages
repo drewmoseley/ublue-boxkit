@@ -12,6 +12,7 @@ dialog
 diffutils
 direnv
 dirmngr
+emacs
 file
 findutils
 fish
