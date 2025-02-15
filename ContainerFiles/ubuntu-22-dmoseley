@@ -36,6 +36,9 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/$(grep VERSION_ID= /etc
     rm -f packages-microsoft-prod.deb && \
     apt update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install powershell
+RUN wget -q http://http.us.debian.org/debian/pool/main/f/fzf/fzf_0.58.0-1_amd64.deb && \
+    dpkg -i fzf_0.58.0-1_amd64.deb && \
+    rm -f fzf_0.58.0-1_amd64.deb
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install moby-cli moby-compose
 RUN rm /toolbox-packages && \
     mkdir /usr/share/empty && \
