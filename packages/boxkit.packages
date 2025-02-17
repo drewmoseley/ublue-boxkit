@@ -14,7 +14,6 @@ dialog
 diffutils
 direnv
 dirmngr
-emacs
 file
 findutils
 fish
@@ -33,7 +32,6 @@ gpg-wks-server
 hostname
 iproute2
 iputils-ping
-ispell
 keyutils
 language-pack-en
 less
