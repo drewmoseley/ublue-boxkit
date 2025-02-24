@@ -36,6 +36,9 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/$(grep VERSION_ID= /etc
     rm -f packages-microsoft-prod.deb && \
     apt update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install powershell
+RUN wget -q https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.6.1/gcm-linux_amd64.2.6.1.deb && \
+    dpkg -i gcm-linux_amd64.2.6.1.deb && \
+    rm -f gcm-linux_amd64.2.6.1.deb
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install moby-cli moby-compose
 RUN rm /toolbox-packages && \
     mkdir /usr/share/empty && \
