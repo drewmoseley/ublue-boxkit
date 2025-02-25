@@ -1,3 +1,4 @@
+ansible
 apt-utils
 apt-transport-https
 avahi-utils
@@ -102,6 +103,7 @@ man-db
 manpages
 media-types
 mesa-vulkan-drivers
+mkosi
 mtr
 ncurses-base
 neofetch
