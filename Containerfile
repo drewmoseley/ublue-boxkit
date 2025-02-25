@@ -32,6 +32,9 @@ RUN echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selectio
     DEBIAN_FRONTEND=noninteractive apt-get -y install apt-transport-https && \
     apt update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install code
+RUN wget -qO- https://apt.releases.hashicorp.com/gpg | gpg --dearmor > /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep UBUNTU_CODENAME= /etc/os-release  | cut -d\= -f 2) main" | tee /etc/apt/sources.list.d/hashicorp.list && \
+    sudo apt update && sudo apt install vagrant
 RUN wget -q https://packages.microsoft.com/config/ubuntu/$(grep VERSION_ID= /etc/os-release  | cut -d\" -f 2)/packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb && \
     rm -f packages-microsoft-prod.deb && \
