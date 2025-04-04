@@ -3,13 +3,11 @@ on:
   pull_request:
     branches:
       - main
-      - ubuntu-22-dmoseley
-      - ubuntu-24-dmoseley
+      - ubuntu-24-dmoseley-v1.1.0
   push:
     branches:
       - main
-      - ubuntu-22-dmoseley
-      - ubuntu-24-dmoseley
+      - ubuntu-24-dmoseley-v1.1.0
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
