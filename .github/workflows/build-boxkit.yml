@@ -13,8 +13,6 @@ on:
       - '**.md'
   schedule:
     - cron: '0 0 * * TUE'
-
-  workflow_dispatch:
 env:
     IMAGE_NAME: ubuntu-24-dmoseley-toolbox
     IMAGE_TAGS: latest
