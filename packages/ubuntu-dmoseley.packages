@@ -109,6 +109,7 @@ net-tools
 nmap
 openssh-client
 openssl
+pass
 passwd
 pigz
 pinentry-curses
