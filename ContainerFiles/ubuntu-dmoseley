@@ -24,6 +24,7 @@ RUN curl https://infinitekind.com/stabledl/current/moneydance_linux_amd64.deb -s
     dpkg --install /tmp/md.deb && \
     rm -f /tmp/md.deb && \
     sed -i -e 's@#-Dsun.java2d.uiScale@-Dsun.java2d.uiScale@' /opt/Moneydance/Moneydance.vmoptions
+RUN wget -qO- https://github.com/gaiaBuildSystem/phobosEmulatorManager/releases/latest/download/install.sh | bash
 RUN echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections && \
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /tmp/packages.microsoft.gpg && \
     install -D -o root -g root -m 644 /tmp/packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg && \
