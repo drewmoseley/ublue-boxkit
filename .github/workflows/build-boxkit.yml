@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - ubuntu-24-dmoseley-v1.2.0
+      - ubuntu-24-dmoseley-v1.3.0
   push:
     branches:
       - main
       - ubuntu-24-dmoseley-v1.2.0
+      - ubuntu-24-dmoseley-v1.3.0
     paths-ignore: # don't rebuild on documentation change
       - '**.md'
   schedule:
