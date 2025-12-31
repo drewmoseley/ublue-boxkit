@@ -10,6 +10,8 @@ LABEL com.github.containers.toolbox="true" \
 COPY ../packages/ubuntu-dmoseley.packages /toolbox-packages
 COPY xdg-open /usr/local/bin/
 RUN chmod +x /usr/local/bin/xdg-open
+COPY containerid /etc/sudoers.d/
+RUN chmod 600 /etc/sudoers.d/containerid
 
 RUN rm /etc/apt/apt.conf.d/docker-gzip-indexes /etc/apt/apt.conf.d/docker-no-languages && \
     sed -Ei 's/^(hosts:.*)(\<files\>)\s*(.*)/\1\2 myhostname \3/' /etc/nsswitch.conf

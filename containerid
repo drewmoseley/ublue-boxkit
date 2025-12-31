@@ -1,0 +1,3 @@
+Defaults env_keep += "CONTAINER_ID"
+Defaults env_keep += "CONTAINER_NAME"
+Defaults env_keep += "YOCTO_PROJECT"
